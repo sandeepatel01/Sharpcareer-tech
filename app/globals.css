@@ -32,9 +32,19 @@ body {
   .markdown {
     @apply max-w-full prose dark:prose-p:text-light-700 dark:pros;
   }
-  .primary-gradient {
+
+  /* .primary-gradient {
     background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+  } */
+
+  .primary-gradient {
+    background: linear-gradient(
+      129deg,
+      rgb(19, 122, 187) 0%,
+      rgb(19, 122, 187) 100%
+    );
   }
+
   .dark-gradient {
     background: linear-gradient(
       232deg,
@@ -48,10 +58,12 @@ body {
   .no-focus {
     @apply focus-visible:ring-0 focus-visible:ring-transparent focus;
   }
+
   .active-theme {
-    filter: invert(53%) sepia(98%) saturate(3332%) hue-rotate(0deg)
-      brightness(104%) contrast(106%) !important;
+    filter: invert(40%) sepia(90%) saturate(600%) hue-rotate(200deg)
+      brightness(100%) contrast(100%) !important;
   }
+
   .light-gradient {
     background: linear-gradient(
       132deg,

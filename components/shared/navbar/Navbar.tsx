@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Theme from "./Theme";
+import MobileNav from "./MobileNav";
+
 const Navbar = () => {
   return (
     <nav
       className="flex-between background-light900_dark200
-       fixed z-50 w-full gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12"
+       fixed z-50 w-full gap-5 p-3 shadow-light-soft dark:shadow-dark-deep sm:px-12"
     >
       <Link href="/" className="mt-1 flex flex-col items-center gap-1">
         <div className="flex items-center gap-2">
@@ -22,10 +25,38 @@ const Navbar = () => {
           </p>
         </div>
       </Link>
-      {/* Link to other pages */}
-      Pages
-      <div className="flex-between gap-5">ThemeToggle</div>
+
+      <ul className="flex gap-8 text-gray-600 dark:text-gray-300 max-lg:hidden">
+        <li>
+          <Link href="/program">Program</Link>
+        </li>
+        <li>
+          <Link href="/mentors">Mentors</Link>
+        </li>
+        <li>
+          <Link href="/reviews">Reviews</Link>
+        </li>
+        <li>
+          <Link href="/placements">Placements</Link>
+        </li>
+        <li>
+          <Link href="/features">Features</Link>
+        </li>
+      </ul>
+
+      <div className="flex items-center gap-5">
+        <Theme />
+
+        <Link
+          href="/apply"
+          className="rounded bg-blue-500 px-4 py-2 text-white font-bold hover:bg-blue-600 max-lg:hidden"
+        >
+          Apply Now
+        </Link>
+        <MobileNav />
+      </div>
     </nav>
   );
 };
+
 export default Navbar;
