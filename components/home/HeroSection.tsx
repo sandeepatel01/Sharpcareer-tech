@@ -1,4 +1,5 @@
 import React from "react";
+import StatsCard from "../cards/StatsCard";
 
 const HeroSection = () => {
   return (
@@ -179,8 +180,11 @@ const HeroSection = () => {
                 </svg>
               </a>
             </div>
+          </div> */}
+
+          <div className="container mx-auto py-8">
+            <StatsCard />
           </div>
-           */}
         </div>
       </section>
     </div>
