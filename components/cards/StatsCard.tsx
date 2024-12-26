@@ -1,49 +1,37 @@
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
-import { CheckCircle, Award, Users, DollarSign } from "lucide-react";
+import { Card, CardDescription } from "@/components/ui/card";
+import { Users, Target, Network, BadgeCheck } from "lucide-react";
 
 const stats = [
   {
-    icon: <CheckCircle className="text-green-500 w-8 h-8" />,
-    number: "1500+",
-    label: "Students Placed",
+    icon: <Users className="text-blue-500 w-8 h-8" />,
+    label: "Connect with peers for jobs, projects and much more",
   },
   {
-    icon: <Award className="text-red-500 w-8 h-8" />,
-    number: "41 LPA",
-    label: "Highest Salary",
+    icon: <Target className="text-green-500 w-8 h-8" />,
+    label: "Build connections that help you grow!",
   },
   {
-    icon: <Users className="text-yellow-500 w-8 h-8" />,
-    number: "450+",
-    label: "Partner Companies",
+    icon: <Network className="text-yellow-500 w-8 h-8" />,
+    label: "Network with peers for projects, interview preparation",
   },
   {
-    icon: <DollarSign className="text-blue-500 w-8 h-8" />,
-    number: "7.2 LPA",
-    label: "Average Salary",
+    icon: <BadgeCheck className="text-indigo-500 w-8 h-8" />,
+    label: "Expert advice a one click away for jobs, mock interviews",
   },
 ];
 
 export default function StatsCard() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 mt-[-20px]  dark:bg-gray-900">
       {stats.map((stat, index) => (
         <Card
           key={index}
-          className="p-4 flex flex-col items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md transition-colors"
+          className="p-6 flex items-center gap-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md rounded-lg"
         >
-          <CardHeader className="flex items-center justify-center">
+          <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700">
             {stat.icon}
-          </CardHeader>
-          <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">
-            {stat.number}
-          </CardTitle>
-          <CardDescription className="text-sm text-gray-500 dark:text-gray-400">
+          </div>
+          <CardDescription className="text-gray-700 dark:text-gray-300">
             {stat.label}
           </CardDescription>
         </Card>
