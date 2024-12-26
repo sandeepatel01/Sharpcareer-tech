@@ -1,8 +1,48 @@
 import tailwindcssAnimate from "tailwindcss-animate";
 import typography from "@tailwindcss/typography";
+import scrollingHide from "tailwind-scrollbar-hide";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+import { Config } from "tailwindcss";
+import type { CSSRuleObject } from "tailwindcss/types/config";
 
 /** @type {import('tailwindcss').Config} */
-const config = {
+
+function addVariablesForColors({
+  addBase,
+  theme,
+}: {
+  addBase: (base: CSSRuleObject | CSSRuleObject[]) => void;
+  theme: (key: string) => Record<string, string>;
+}) {
+  const allColors = flattenColorPalette(theme("colors"));
+
+  // Only if we have a valid object
+  if (typeof allColors === "object" && allColors !== null) {
+    const newVars = Object.entries(allColors)
+      .map(([key, value]) => {
+        if (typeof value === "string") {
+          return [`--${key}`, value]; // Each entry is a key-value pair
+        }
+        return [`--${key}`, ""]; // Fallback if value is not a string
+      })
+      .reduce(
+        (acc, [key, value]) => {
+          acc[key] = value; // Convert array of pairs into an object
+          return acc;
+        },
+        {} as Record<string, string>
+      ); // Ensure it's a valid object
+
+    // Now add the variables as an object
+    addBase([
+      {
+        ":root": newVars, // addBase expects a CSSRuleObject or an array of it
+      },
+    ]);
+  }
+}
+
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -10,6 +50,7 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+
   theme: {
     container: {
       center: true,
@@ -20,12 +61,6 @@ const config = {
     },
     extend: {
       colors: {
-        // primary: {
-        //   "100": "#FFF1E6",
-        //   "500": "#FF7000",
-        //   DEFAULT: "hsl(var(--primary))",
-        //   foreground: "hsl(var(--primary-foreground))",
-        // },
         primary: {
           "50": "#eff6ff",
           "100": "#dbeafe",
@@ -148,7 +183,7 @@ const config = {
       keyframes: {
         "accordion-down": {
           from: {
-            height: 0,
+            height: "0",
           },
           to: {
             height: "var(--radix-accordion-content-height)",
@@ -159,11 +194,18 @@ const config = {
             height: "var(--radix-accordion-content-height)",
           },
           to: {
-            height: 0,
+            height: "0",
+          },
+        },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
           },
         },
       },
       animation: {
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
@@ -174,7 +216,12 @@ const config = {
       },
     },
   },
-  plugins: [tailwindcssAnimate, typography],
+  plugins: [
+    tailwindcssAnimate,
+    typography,
+    scrollingHide,
+    addVariablesForColors,
+  ],
 };
 
 export default config;
