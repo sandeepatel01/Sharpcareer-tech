@@ -4,7 +4,9 @@ import React from "react";
 const page = () => {
   return (
     <>
-      <HeroSection />
+      <div className="w-full flex flex-col">
+        <HeroSection />
+      </div>
     </>
   );
 };
