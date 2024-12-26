@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import Programs from "@/components/home/Programs";
 import React from "react";
 
 const page = () => {
@@ -7,6 +8,7 @@ const page = () => {
       <div className="w-full flex flex-col">
         <HeroSection />
       </div>
+      <Programs />
     </>
   );
 };
