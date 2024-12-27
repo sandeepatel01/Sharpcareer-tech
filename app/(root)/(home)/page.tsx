@@ -4,6 +4,9 @@ import Programs from "@/components/home/Programs";
 import Testimonials from "@/components/home/TestimonialCards";
 import React from "react";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import RecruitmentSteps from "@/components/home/RecruitmentSteps";
+import FAQ from "@/components/home/FAQ";
+import NetworkingHelp from "@/components/home/NetworkingHelp";
 
 const page = () => {
   return (
@@ -12,6 +15,7 @@ const page = () => {
         <HeroSection />
       </div>
       <Programs />
+      <NetworkingHelp />
       <div className="max-lg:hidden">
         <Testimonials />
       </div>
@@ -20,6 +24,8 @@ const page = () => {
           <CardStackDemo />
         </BackgroundBeamsWithCollision>
       </div>
+      <RecruitmentSteps />
+      <FAQ />
     </>
   );
 };
