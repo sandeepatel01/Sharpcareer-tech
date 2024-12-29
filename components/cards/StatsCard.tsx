@@ -22,11 +22,11 @@ const stats = [
 
 export default function StatsCard() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 mt-[-20px]  dark:bg-gray-900">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 mt-[-20px]">
       {stats.map((stat, index) => (
         <Card
           key={index}
-          className="p-6 flex items-center gap-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md rounded-lg"
+          className="p-6 flex items-center gap-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md rounded-[10px]"
         >
           <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700">
             {stat.icon}

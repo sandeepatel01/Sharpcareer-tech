@@ -3,6 +3,8 @@ declare module "tailwindcss/lib/util/flattenColorPalette" {
     [key: string]: string | FlattenColorPalette; // Nested color objects
   };
 
-  const flattenColorPalette: (colors: FlattenColorPalette) => FlattenColorPalette;
+  const flattenColorPalette: (
+    colors: FlattenColorPalette
+  ) => FlattenColorPalette;
   export = flattenColorPalette;
 }

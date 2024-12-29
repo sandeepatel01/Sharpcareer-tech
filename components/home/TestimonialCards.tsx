@@ -36,7 +36,7 @@ const musicSchoolTestimonials = [
 
 function Testimonials() {
   return (
-    <div className="h-[40rem] w-full bg-gray-800 dark:bg-black dark:bg-grid-white/[0.2] relative flex flex-col items-center justify-center overflow-hidden">
+    <div className="h-[40rem] w-full bg-[#02042a] dark:bg-black dark:bg-grid-white/[0.2] relative flex flex-col items-center justify-center overflow-hidden">
       <h2 className="text-white sm:text-4xl font-extrabold leading-8 text-3xl text-center  mb-8 z-10">
         What Our<span className="text-blue-600"> Users</span> Say
       </h2>
