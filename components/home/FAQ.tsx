@@ -185,7 +185,6 @@ const FAQ = () => {
 
 export default FAQ;
 
-
 // "use client";
 
 // import { useState } from "react";
