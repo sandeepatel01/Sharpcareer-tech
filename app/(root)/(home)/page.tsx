@@ -7,6 +7,7 @@ import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-w
 import RecruitmentSteps from "@/components/home/RecruitmentSteps";
 import FAQ from "@/components/home/FAQ";
 import NetworkingHelp from "@/components/home/NetworkingHelp";
+import Footer from "@/components/shared/footer/Footer";
 
 const page = () => {
   return (
@@ -26,6 +27,7 @@ const page = () => {
       </div>
       <RecruitmentSteps />
       <FAQ />
+      <Footer />
     </>
   );
 };
